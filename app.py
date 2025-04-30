@@ -28,9 +28,13 @@ def search_rule(query):
             return CODING_RULES[keyword]
     return "Sorry, I couldn't find a matching coding rule."
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
+    if request.method == "POST":
+        # handle form submission here
+        ...
     return render_template("index.html")
+
 
 @app.route("/ask", methods=["POST"])
 def ask():
